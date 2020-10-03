@@ -1,0 +1,12 @@
+{
+  "name": "jacob-app",
+  "displayName": "jacob-app",
+  "expo": {
+    "name": "jacob-app",
+    "slug": "jacob-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
