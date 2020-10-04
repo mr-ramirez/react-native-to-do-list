@@ -10,17 +10,14 @@ export default StyleSheet.create({
   },
   LeftSide: {
     flex: 1,
-    // backgroundColor: 'pink',
   },
   CenterSide: {
     flex: 2,
-    // backgroundColor: 'green',
     justifyContent: 'center',
     alignItems: 'center',
   },
   RightSide: {
     flex: 1,
-    // backgroundColor: 'pink',
     alignItems: 'flex-end',
   },
   Title: {
