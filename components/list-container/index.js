@@ -15,9 +15,7 @@ export default function ListContainer(props: ListContainerPropsType): Object {
   const { items = [] } = props;
 
   const renderItem: Object = ({ item }): Object => (
-    <View key={`item-list-${item.id + 1}`}>
-      <Text>{item.description}</Text>
-    </View>
+    <Item {...item} />
   );
 
   return (

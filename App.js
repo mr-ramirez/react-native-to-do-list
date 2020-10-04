@@ -10,15 +10,15 @@ export default function App() {
   const items: Array<ItemType> = [{
     id: '10001',
     description: 'Description 1',
-    dateAdded: 'null',
+    dueDate: 'null',
   }, {
     id: '10002',
     description: 'Description 2',
-    dateAdded: 'null',
+    dueDate: 'null',
   }, {
     id: '10003',
     description: 'Description 3',
-    dateAdded: 'null',
+    dueDate: 'null',
   }];
 
   return (
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
   },
 });

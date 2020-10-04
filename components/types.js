@@ -1,7 +1,7 @@
 // @flow
 
 export type ItemType = {
-  dateAdded: string,
+  dueDate: string,
   description: string,
   id: string,
 };
