@@ -12,18 +12,25 @@ type UseAddItemReturnType = {
 };
 
 export default function useAddItem(): UseAddItemReturnType {
-  const { items, setItems } = useItemsList();
+  const {
+    items, setItems, lastId, setNewLastId,
+  } = useItemsList();
+
   const { sortItems } = useSortItems();
 
   return {
     addItem: (item: ItemType) => {
       const newItems: Array<ItemType> = [
         ...items,
-        { ...item },
+        {
+          ...item,
+          id: String(lastId + 1),
+        },
       ];
 
       sortItems(newItems);
       setItems(newItems);
-    };
+      setNewLastId(lastId + 1);
+    },
   };
 }

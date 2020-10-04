@@ -15,7 +15,8 @@ export default function DescriptionContainer(props: DescriptionContainerPropsTyp
 
   return (
     <View style={Styles.TextContainer}>
-      <Text>{description}</Text>
+      <Text style={Styles.Description}>{description}</Text>
+      <Text style={Styles.Date}>{date}</Text>
     </View>
   );
 }

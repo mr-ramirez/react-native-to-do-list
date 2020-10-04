@@ -4,29 +4,20 @@ import { StyleSheet, Text, SafeAreaView } from 'react-native';
 
 import type { ItemType } from './components/types';
 
+import useContext from './data/context';
 import Header from './components/header/';
 import ListContainer from './components/list-container/';
 
 export default function App() {
-  const items: Array<ItemType> = [{
-    id: '10001',
-    description: 'Description 1',
-    dueDate: 'null',
-  }, {
-    id: '10002',
-    description: 'Description 2',
-    dueDate: 'null',
-  }, {
-    id: '10003',
-    description: 'Description 3',
-    dueDate: 'null',
-  }];
+  const { Provider } = useContext();
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Header title="To Do List" />
-      <ListContainer items={items} />
-    </SafeAreaView>
+    <Provider>
+      <SafeAreaView style={styles.container}>
+        <Header title="To Do List" />
+        <ListContainer />
+      </SafeAreaView>
+    </Provider>
   );
 }
 
