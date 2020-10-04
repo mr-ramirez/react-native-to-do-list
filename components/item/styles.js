@@ -5,13 +5,13 @@ export default StyleSheet.create({
     flexDirection: 'row',
     margin: 10,
   },
-  Description: {
-    flex: 5,
+  TextContainer: {
+    flex: 2,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
   },
-  ButtonsContainer: {
+  OptionsContainer: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',

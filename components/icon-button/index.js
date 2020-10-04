@@ -2,7 +2,7 @@
 import React from 'react';
 import { TouchableHighlight } from 'react-native';
 
-import Icon from './icons-list';
+import Icon from './icon';
 
 type IconButtonPropsType = {
   color: string,
