@@ -3,18 +3,21 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   ItemContainer: {
     flexDirection: 'row',
-    marginTop: 10,
-    marginBottom: 10,
+    margin: 10,
   },
   Description: {
-    flex: 2,
+    flex: 5,
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
-    paddingLeft: 20
+  },
+  ButtonsContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   Button: {
-    flex: 1,
+    width: 'auto',
     justifyContent: 'flex-end',
   },
 });

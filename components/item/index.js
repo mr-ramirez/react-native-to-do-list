@@ -1,10 +1,12 @@
 // @flow
 
 import React from 'react';
-import { Button, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 import type { ItemType } from '../types';
+
 import Styles from './styles';
+import IconButton from '../icon-button';
 
 export default function Item(props: ItemType): Object {
   const { description, id } = props;
@@ -15,9 +17,16 @@ export default function Item(props: ItemType): Object {
         <Text>{description}</Text>
       </View>
 
-      <View style={Styles.Button}>
-        <Button title="Done" />
+      <View style={Styles.ButtonsContainer}>
+        <View style={Styles.Button}>
+          <IconButton iconName="edit" color="black" onPress={() => true} />
+        </View>
+
+        <View style={Styles.Button}>
+          <IconButton iconName="remove" color="black" onPress={() => true} />
+        </View>
       </View>
+
     </View>
   );
 }
