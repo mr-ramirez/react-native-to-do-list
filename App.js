@@ -4,6 +4,7 @@ import { StyleSheet, Text, SafeAreaView } from 'react-native';
 
 import type { ItemType } from './components/types';
 
+import Header from './components/header/';
 import ListContainer from './components/list-container/';
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header title="To Do List" />
       <ListContainer items={items} />
     </SafeAreaView>
   );
