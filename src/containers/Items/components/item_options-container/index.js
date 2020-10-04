@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Switch, Text, View } from 'react-native';
 
 import Styles from './styles';
-import IconButton from '../icon-button';
+import IconButton from '../../../../components/icon-button';
 
 type OptionsContainerPropsType = {
   itemId: string

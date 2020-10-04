@@ -3,9 +3,9 @@
 import React from 'react';
 import { FlatList, Text, View } from 'react-native';
 
-import type { ItemType } from '../types';
+import type { ItemType } from '../../types';
 
-import useContext from '../../data/context';
+import useContext from '../../../../data/context';
 import Item from '../item';
 
 export default function ListContainer(): Object {

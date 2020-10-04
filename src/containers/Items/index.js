@@ -4,28 +4,20 @@ import { StyleSheet, Text, SafeAreaView } from 'react-native';
 
 import type { ItemType } from './components/types';
 
-import useContext from './data/context';
-import Header from './components/header/';
+import useContext from '../../data/context';
+import Header from '../../components/header/';
 import ListContainer from './components/list-container/';
+import Styles from './styles';
 
-export default function App() {
+export default function ItemsContainer() {
   const { Provider } = useContext();
 
   return (
     <Provider>
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={Styles.container}>
         <Header title="To Do List" />
         <ListContainer />
       </SafeAreaView>
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'stretch',
-    justifyContent: 'center',
-  },
-});
