@@ -1,13 +1,32 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, SafeAreaView } from 'react-native';
+
+import type { ItemType } from './components/types';
+
+import Header from './components/header/';
+import ListContainer from './components/list-container/';
 
 export default function App() {
+  const items: Array<ItemType> = [{
+    id: '10001',
+    description: 'Description 1',
+    dueDate: 'null',
+  }, {
+    id: '10002',
+    description: 'Description 2',
+    dueDate: 'null',
+  }, {
+    id: '10003',
+    description: 'Description 3',
+    dueDate: 'null',
+  }];
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Header title="To Do List" />
+      <ListContainer items={items} />
+    </SafeAreaView>
   );
 }
 
@@ -15,7 +34,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
   },
 });
