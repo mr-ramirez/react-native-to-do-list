@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
-  ItemContainer: {
+  EmptyListContainer: {
     flex: 1,
     flexDirection: 'row',
     marginLeft: 10,

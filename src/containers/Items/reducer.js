@@ -56,7 +56,7 @@ const ItemsReducer = (
       return {
         ...state,
         items: state.items
-          .filter((item: ItemType): boolean => item.id !== payload.item.id),
+          .filter((item: ItemType): boolean => item.id !== payload.id),
       };
 
     case UPDATE_LAST_ID:
