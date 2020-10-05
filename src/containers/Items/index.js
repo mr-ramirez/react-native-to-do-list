@@ -33,15 +33,28 @@ export default function ItemsContainer() {
     };
 
     dispatch(Actions.addItem(newItem));
+    dispatch(Actions.updateLastId());
   };
 
   const editItem = (item: ItemType): void => {
     dispatch(Actions.editItem(item));
   };
 
+  const removeItem = (id: string): void => {
+    dispatch(Actions.editItem(item));
+  };
+
   const openEditModal = (item: ItemType) => {
     setItemToEdit(item);
     setIfEditItemModalShouldBeOpen(true);
+  };
+
+  const onEnable = (item: ItemType) => {
+    editItem({ ...item, isEnabled: true });
+  };
+
+  const onDisable = (item: ItemType) => {
+    editItem({ ...item, isEnabled: false });
   };
 
   return (
@@ -64,7 +77,12 @@ export default function ItemsContainer() {
         itemToEdit={itemToEdit}
       />
 
-      <ListContainer items={items} openEditModal={openEditModal} />
+      <ListContainer
+        items={items}
+        openEditModal={openEditModal}
+        onEnable={onEnable}
+        onDisable={onDisable}
+      />
     </SafeAreaView>
   );
 }

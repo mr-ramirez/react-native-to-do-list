@@ -7,12 +7,16 @@ import Styles from './styles';
 import IconButton from '../../../../components/icon-button';
 
 type OptionsContainerPropsType = {
-  onEdit: () => void
+  isEnabled: boolean,
+  onDisable: () => void,
+  onEdit: () => void,
+  onEnable: () => void
 };
 
 export default function OptionsContainer(props: OptionsContainerPropsType): Object {
-  const { onEdit } = props;
-  const [isEnabled, setEnabled] = useState(false);
+  const {
+    onEdit, isEnabled, onEnable, onDisable,
+  } = props;
 
   return (
     <View style={Styles.OptionsContainer}>
@@ -26,10 +30,10 @@ export default function OptionsContainer(props: OptionsContainerPropsType): Obje
 
       <View style={Styles.Switch}>
         <Switch
-          trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+          trackColor={{ false: 'white', true: '#ECF0F1' }}
+          thumbColor={isEnabled ? 'black' : 'white'}
           ios_backgroundColor="#3e3e3e"
-          onValueChange={() => setEnabled(!isEnabled)}
+          onValueChange={() => isEnabled ? onDisable() : onEnable()}
           value={isEnabled}
         />
       </View>

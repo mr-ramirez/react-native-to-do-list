@@ -9,14 +9,23 @@ import Item from '../item';
 
 type ListContainerPropsType = {
   items: Array<ItemType>,
+  onDisable: (ItemType) => void,
+  onEnable: (ItemType) => void,
   openEditModal: (ItemType) => void
 };
 
 export default function ListContainer(props: ListContainerPropsType): Object {
-  const { items, openEditModal } = props;
+  const {
+    items, onDisable, onEnable, openEditModal,
+  } = props;
 
   const renderItem: Object = ({ item }): Object => (
-    <Item {...item} onEdit={() => openEditModal(item)} />
+    <Item
+      item={item}
+      onEdit={() => openEditModal(item)}
+      onDisable={() => onDisable(item)}
+      onEnable={() => onEnable(item)}
+    />
   );
 
   return (
