@@ -8,11 +8,14 @@ import type { ItemType } from './types';
 import * as Actions from './actions';
 import Header from '../../components/header/';
 import ListContainer from './components/list-container/';
-import ItemModal from './components/item-modal/';
+import AddItemModal from './components/add-item-modal/';
+import EditItemModal from './components/edit-item-modal/';
 import Styles from './styles';
 
 export default function ItemsContainer() {
   const [isAddItemModalOpen, setIfAddItemModalShouldBeOpen] = useState(false);
+  const [isEditItemModalOpen, setIfEditItemModalShouldBeOpen] = useState(false);
+  const [itemToEdit, setItemToEdit] = useState({});
 
   const { items, lastId } = useSelector(state => ({
     items: state.items.items,
@@ -26,9 +29,32 @@ export default function ItemsContainer() {
       id: Number(lastId) + 1,
       description,
       dueDate,
+      isEnabled: true,
     };
 
     dispatch(Actions.addItem(newItem));
+    dispatch(Actions.updateLastId());
+  };
+
+  const editItem = (item: ItemType): void => {
+    dispatch(Actions.editItem(item));
+  };
+
+  const removeItem = (id: string): void => {
+    dispatch(Actions.editItem(item));
+  };
+
+  const openEditModal = (item: ItemType) => {
+    setItemToEdit(item);
+    setIfEditItemModalShouldBeOpen(true);
+  };
+
+  const onEnable = (item: ItemType) => {
+    editItem({ ...item, isEnabled: true });
+  };
+
+  const onDisable = (item: ItemType) => {
+    editItem({ ...item, isEnabled: false });
   };
 
   return (
@@ -38,13 +64,25 @@ export default function ItemsContainer() {
         title="To Do List"
       />
 
-      <ItemModal
+      <AddItemModal
         isOpen={isAddItemModalOpen}
         closeModal={() => setIfAddItemModalShouldBeOpen(false)}
         addItem={addItem}
       />
 
-      <ListContainer items={items} />
+      <EditItemModal
+        isOpen={isEditItemModalOpen}
+        closeModal={() => setIfEditItemModalShouldBeOpen(false)}
+        editItem={editItem}
+        itemToEdit={itemToEdit}
+      />
+
+      <ListContainer
+        items={items}
+        openEditModal={openEditModal}
+        onEnable={onEnable}
+        onDisable={onDisable}
+      />
     </SafeAreaView>
   );
 }

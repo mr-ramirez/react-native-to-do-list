@@ -14,13 +14,13 @@ import ItemModalDescriptionContainer from '../item-modal_description-container';
 import ItemModalErrorMessage from '../item-modal_error-message';
 import ItemModalHeader from '../item-modal_header';
 
-type ItemModalPropsType = {
+type AddItemModalPropsType = {
   addItem: (string, string) => void,
   closeModal: () => void,
   isOpen: boolean
 };
 
-export default function ItemModal(props: ItemModalPropsType): Object {
+export default function AddItemModal(props: AddItemModalPropsType): Object {
   const { addItem, isOpen, closeModal } = props;
 
   const [description, setDescription] = useState('');

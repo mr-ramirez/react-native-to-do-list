@@ -4,6 +4,7 @@ export type ItemType = {
   dueDate: string,
   description: string,
   id: string,
+  isEnabled: boolean
 };
 
 export type ItemsStateContainerType = {

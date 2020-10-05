@@ -9,13 +9,33 @@ import Styles from './styles';
 import DescriptionContainer from '../item_description-container/';
 import OptionsContainer from '../item_options-container/';
 
-export default function Item(props: ItemType): Object {
-  const { dueDate, description, id } = props;
+type ItemPropsType = {
+  item: ItemType,
+  onEdit: () => void,
+  onEnable: () => void,
+  onDisable: () => void
+};
+
+export default function Item(props: ItemPropsType): Object {
+  const {
+    item: {
+      dueDate, description, id, isEnabled,
+    },
+    onDisable,
+    onEdit,
+    onEnable,
+  } = props;
 
   return (
     <View key={`item-list-${id}`} style={Styles.ItemContainer}>
       <DescriptionContainer description={description} date={dueDate} />
-      <OptionsContainer itemId={id} />
+
+      <OptionsContainer
+        isEnabled={isEnabled}
+        onDisable={onDisable}
+        onEdit={onEdit}
+        onEnable={onEnable}
+      />
     </View>
   );
 }

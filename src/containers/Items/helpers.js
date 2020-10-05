@@ -23,3 +23,7 @@ export function mergeDateAndTime(date: string, time: string): string {
 
   return datetimeAsMoment.format('YYYY/MM/DD HH:mm:ss');
 };
+
+export function convertDateStringIntoDateObject(date: string): Object {
+  return moment(date, 'YYYY/MM/DD HH:mm:ss').toDate();
+}
