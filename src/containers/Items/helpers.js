@@ -11,3 +11,15 @@ export function sortItems(itemsToSort: Array<ItemType>): void {
     return firstDueDate.isAfter(secondDueDate) ? 1 : -1;
   });
 }
+
+export function mergeDateAndTime(date: string, time: string): string {
+  const newDate: string = date.toISOString().split('T')[0];
+  const newTime: string = time.toISOString().split('T')[1];
+
+  const datetimeAsMoment = moment(
+    `${newDate} ${newTime}`,
+    'YYYY-MM-DD HH:mm:ss.sssZ',
+  );
+
+  return datetimeAsMoment.format('YYYY/MM/DD HH:mm:ss');
+};
