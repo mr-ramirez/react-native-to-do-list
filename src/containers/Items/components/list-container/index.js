@@ -3,7 +3,7 @@
 import React from 'react';
 import { FlatList, Text, View } from 'react-native';
 
-import type { ItemType } from '../types';
+import type { ItemType } from '../../types';
 
 import Item from '../item';
 
@@ -12,7 +12,7 @@ type ListContainerPropsType = {
 };
 
 export default function ListContainer(props: ListContainerPropsType): Object {
-  const { items = [] } = props;
+  const { items } = props;
 
   const renderItem: Object = ({ item }): Object => (
     <Item {...item} />

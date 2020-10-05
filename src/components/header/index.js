@@ -6,11 +6,12 @@ import Styles from './styles';
 import IconButton from '../icon-button';
 
 type HeaderPropsType = {
+  onRightButtonPress: () => void,
   title: string
 };
 
 export default function Header(props: HeaderPropsType): Object {
-  const { title } = props;
+  const { onRightButtonPress, title } = props;
 
   return (
     <View style={Styles.HeaderContainer}>
@@ -21,7 +22,7 @@ export default function Header(props: HeaderPropsType): Object {
       </View>
 
       <View style={Styles.RightSide}>
-        <IconButton iconName="add" color="black" onPress={() => true} />
+        <IconButton iconName="add" color="black" onPress={onRightButtonPress} />
       </View>
 
     </View>

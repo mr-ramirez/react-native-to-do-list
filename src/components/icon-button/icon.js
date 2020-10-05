@@ -11,6 +11,8 @@ export default function Icon(props: IconPropsType): Object {
   const { color, iconName } = props;
 
   switch(iconName) {
+    case 'close':
+      return (<AntDesign name="close" size={24} color={color} />);
     case 'edit':
       return (<AntDesign name="edit" size={24} color={color} />);
     case 'remove':
