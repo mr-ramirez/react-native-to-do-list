@@ -7,16 +7,17 @@ import Styles from './styles';
 import IconButton from '../../../../components/icon-button';
 
 type OptionsContainerPropsType = {
-  itemId: string
+  onEdit: () => void
 };
 
 export default function OptionsContainer(props: OptionsContainerPropsType): Object {
+  const { onEdit } = props;
   const [isEnabled, setEnabled] = useState(false);
 
   return (
     <View style={Styles.OptionsContainer}>
       <View style={Styles.Button}>
-        <IconButton iconName="edit" color="black" onPress={() => true} />
+        <IconButton iconName="edit" color="black" onPress={onEdit} />
       </View>
 
       <View style={Styles.Button}>

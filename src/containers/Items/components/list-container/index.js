@@ -8,14 +8,15 @@ import type { ItemType } from '../../types';
 import Item from '../item';
 
 type ListContainerPropsType = {
-  items: Array<ItemType>
+  items: Array<ItemType>,
+  openEditModal: (ItemType) => void
 };
 
 export default function ListContainer(props: ListContainerPropsType): Object {
-  const { items } = props;
+  const { items, openEditModal } = props;
 
   const renderItem: Object = ({ item }): Object => (
-    <Item {...item} />
+    <Item {...item} onEdit={() => openEditModal(item)} />
   );
 
   return (
