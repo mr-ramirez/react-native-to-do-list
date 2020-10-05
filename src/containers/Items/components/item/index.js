@@ -13,7 +13,8 @@ type ItemPropsType = {
   item: ItemType,
   onEdit: () => void,
   onEnable: () => void,
-  onDisable: () => void
+  onDisable: () => void,
+  onRemove: () => void,
 };
 
 export default function Item(props: ItemPropsType): Object {
@@ -24,6 +25,7 @@ export default function Item(props: ItemPropsType): Object {
     onDisable,
     onEdit,
     onEnable,
+    onRemove,
   } = props;
 
   return (
@@ -35,6 +37,7 @@ export default function Item(props: ItemPropsType): Object {
         onDisable={onDisable}
         onEdit={onEdit}
         onEnable={onEnable}
+        onRemove={onRemove}
       />
     </View>
   );

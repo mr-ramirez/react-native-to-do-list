@@ -41,7 +41,7 @@ export default function ItemsContainer() {
   };
 
   const removeItem = (id: string): void => {
-    dispatch(Actions.editItem(item));
+    dispatch(Actions.removeItem(id));
   };
 
   const openEditModal = (item: ItemType) => {
@@ -82,6 +82,7 @@ export default function ItemsContainer() {
         openEditModal={openEditModal}
         onEnable={onEnable}
         onDisable={onDisable}
+        onRemove={removeItem}
       />
     </SafeAreaView>
   );

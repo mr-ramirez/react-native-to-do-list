@@ -10,12 +10,13 @@ type OptionsContainerPropsType = {
   isEnabled: boolean,
   onDisable: () => void,
   onEdit: () => void,
-  onEnable: () => void
+  onEnable: () => void,
+  onRemove: () => void
 };
 
 export default function OptionsContainer(props: OptionsContainerPropsType): Object {
   const {
-    onEdit, isEnabled, onEnable, onDisable,
+    onEdit, isEnabled, onEnable, onRemove, onDisable,
   } = props;
 
   return (
@@ -25,7 +26,7 @@ export default function OptionsContainer(props: OptionsContainerPropsType): Obje
       </View>
 
       <View style={Styles.Button}>
-        <IconButton iconName="remove" color="black" onPress={() => true} />
+        <IconButton iconName="remove" color="black" onPress={onRemove} />
       </View>
 
       <View style={Styles.Switch}>
