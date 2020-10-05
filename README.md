@@ -18,6 +18,12 @@ or if you have yarn install:
   yarn
 ```
 
+4. Link all the necessary libraries by executing:
+
+```
+  npx pod-install
+```
+
 ## Execution
 
 To run the application using xcode, execute one of the following command:
