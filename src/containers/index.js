@@ -1,15 +1,17 @@
 // @flow
 import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
+import RootReducer from './rootReducer';
 import ItemsContainer from './Items/';
-// import useContext from '../data/context';
+
+const store = createStore(RootReducer);
 
 export default function App() {
-  // const { Provider } = useContext();
-
   return (
-    // <Provider>
+    <Provider store={store}>
       <ItemsContainer />
-    // </Provider>
+    </Provider>
   );
 }

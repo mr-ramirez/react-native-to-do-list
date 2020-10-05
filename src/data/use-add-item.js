@@ -14,7 +14,7 @@ type UseAddItemReturnType = {
 export default function useAddItem(): UseAddItemReturnType {
   const {
     items, setItems, lastId, setNewLastId,
-  } = useItemsList();
+  } = useItemsList({ component: 'useAddItem' });
 
   const { sortItems } = useSortItems();
 
@@ -29,8 +29,9 @@ export default function useAddItem(): UseAddItemReturnType {
       ];
 
       sortItems(newItems);
+      console.log('SETTING');
       setItems([ ...newItems ]);
-      setNewLastId(lastId + 1);
+      // setNewLastId(lastId + 1);
     },
   };
 }

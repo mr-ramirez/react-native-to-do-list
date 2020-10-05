@@ -10,7 +10,7 @@ type useItemsListReturnType = {
   setNewLastId: (number) => void
 };
 
-export default function useItemsList(): useItemsListReturnType {
+export default function useItemsList(props): useItemsListReturnType {
   const [items, setItems] = useState([{
     id: '1',
     description: 'Going to the groceries store to get some flour for the cupcakes',
@@ -25,7 +25,7 @@ export default function useItemsList(): useItemsListReturnType {
     dueDate: '2020/10/04 13:00:00',
   }]);
 
-  // console.log('ITEMS', items);
+  console.log('ITEMS', props, items.length);
 
   const [lastId, setNewLastId] = useState(3);
 

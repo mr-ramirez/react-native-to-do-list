@@ -1,21 +1,7 @@
 // @flow
-import React, { createContext } from 'react';
+import { createContext } from 'react';
 
-import useAddItem from '../data/use-add-item';
-import useItemsList from '../data/use-items-list';
+const Context = createContext({});
 
-export default function useContext() {
-  const { addItem } = useAddItem();
-  const { items } = useItemsList();
-
-  console.log('ITEMS', items);
-
-  const Context = createContext({
-    addItem, items,
-  });
-
-  return {
-    Provider: Context.Provider,
-    Consumer: Context.Consumer,
-  };
-}
+export const Provider = Context.Provider;
+export const Consumer = Context.Consumer;

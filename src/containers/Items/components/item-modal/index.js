@@ -12,12 +12,13 @@ import ItemModalDescriptionContainer from '../item-modal_description-container';
 import ItemModalHeader from '../item-modal_header';
 
 type ItemModalPropsType = {
+  addItem: (string, string) => void,
   closeModal: () => void,
   isOpen: boolean
 };
 
 export default function ItemModal(props: ItemModalPropsType): Object {
-  const { isOpen, closeModal } = props;
+  const { addItem, isOpen, closeModal } = props;
 
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState(new Date());
@@ -42,6 +43,7 @@ export default function ItemModal(props: ItemModalPropsType): Object {
           description={description}
           date={dueDate}
           time={dueTime}
+          addItem={addItem}
         />
       </View>
 
