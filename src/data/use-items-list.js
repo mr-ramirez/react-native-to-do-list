@@ -25,6 +25,8 @@ export default function useItemsList(): useItemsListReturnType {
     dueDate: '2020/10/04 13:00:00',
   }]);
 
+  // console.log('ITEMS', items);
+
   const [lastId, setNewLastId] = useState(3);
 
   return {

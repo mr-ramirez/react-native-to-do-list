@@ -8,6 +8,8 @@ export default function useContext() {
   const { addItem } = useAddItem();
   const { items } = useItemsList();
 
+  console.log('ITEMS', items);
+
   const Context = createContext({
     addItem, items,
   });

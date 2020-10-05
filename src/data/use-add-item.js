@@ -29,7 +29,7 @@ export default function useAddItem(): UseAddItemReturnType {
       ];
 
       sortItems(newItems);
-      setItems(newItems);
+      setItems([ ...newItems ]);
       setNewLastId(lastId + 1);
     },
   };

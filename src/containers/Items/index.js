@@ -1,23 +1,25 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 
-import type { ItemType } from './components/types';
-
-import useContext from '../../data/context';
 import Header from '../../components/header/';
 import ListContainer from './components/list-container/';
+import ItemModal from './components/item-modal/';
 import Styles from './styles';
 
 export default function ItemsContainer() {
-  const { Provider } = useContext();
+  const [isAddItemModalOpen, setIfAddItemModalShouldBeOpen] = useState(false);
 
   return (
-    <Provider>
-      <SafeAreaView style={Styles.container}>
-        <Header title="To Do List" />
-        <ListContainer />
-      </SafeAreaView>
-    </Provider>
+    <SafeAreaView style={Styles.container}>
+      <Header
+        onRightButtonPress={() => setIfAddItemModalShouldBeOpen(!isAddItemModalOpen)}
+        title="To Do List"
+      />
+
+      <ItemModal isOpen={isAddItemModalOpen} closeModal={() => setIfAddItemModalShouldBeOpen(false)} />
+
+      <ListContainer />
+    </SafeAreaView>
   );
 }
