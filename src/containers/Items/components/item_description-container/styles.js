@@ -16,4 +16,14 @@ export default StyleSheet.create({
     fontSize: 10,
     fontStyle: 'italic',
   },
+  PassedDescription: {
+    fontSize: 14,
+    color: '#9B9998',
+  },
+  PassedDate: {
+    marginTop: 5,
+    fontSize: 10,
+    fontStyle: 'italic',
+    color: '#9B9998',
+  },
 });

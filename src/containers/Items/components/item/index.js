@@ -30,7 +30,11 @@ export default function Item(props: ItemPropsType): Object {
 
   return (
     <View key={`item-list-${id}`} style={Styles.ItemContainer}>
-      <DescriptionContainer description={description} date={dueDate} />
+      <DescriptionContainer
+        description={description}
+        date={dueDate}
+        isEnabled={isEnabled}
+      />
 
       <OptionsContainer
         isEnabled={isEnabled}

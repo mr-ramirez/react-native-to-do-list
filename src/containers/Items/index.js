@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import { useHistory } from "react-router-dom";
 
 import type { ItemType } from './types';
 
@@ -16,6 +17,8 @@ export default function ItemsContainer() {
   const [isAddItemModalOpen, setIfAddItemModalShouldBeOpen] = useState(false);
   const [isEditItemModalOpen, setIfEditItemModalShouldBeOpen] = useState(false);
   const [itemToEdit, setItemToEdit] = useState({});
+
+  const { push } = useHistory();
 
   const { items, lastId } = useSelector(state => ({
     items: state.items.items,
@@ -60,7 +63,8 @@ export default function ItemsContainer() {
   return (
     <SafeAreaView style={Styles.container}>
       <Header
-        onRightButtonPress={() => setIfAddItemModalShouldBeOpen(!isAddItemModalOpen)}
+        // onRightButtonPress={() => setIfAddItemModalShouldBeOpen(!isAddItemModalOpen)}
+        onRightButtonPress={() => push('/scanner')}
         title="To Do List"
       />
 

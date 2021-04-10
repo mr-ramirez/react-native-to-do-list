@@ -27,3 +27,8 @@ export function mergeDateAndTime(date: string, time: string): string {
 export function convertDateStringIntoDateObject(date: string): Object {
   return moment(date, 'YYYY/MM/DD HH:mm:ss').toDate();
 }
+
+export function isPassedDueDate(date: string): boolean {
+  const today = moment();
+  return moment(date, 'YYYY/MM/DD HH:mm:ss').isAfter(today);
+}
